@@ -1,8 +1,10 @@
 package com.waa.ecommerce.controller;
 
 import com.waa.ecommerce.model.Buyer;
+import com.waa.ecommerce.model.Review;
 import com.waa.ecommerce.model.Seller;
 import com.waa.ecommerce.service.BuyerService;
+import com.waa.ecommerce.service.ReviewService;
 import com.waa.ecommerce.service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,9 +22,13 @@ public class BuyerSellerController {
     @Autowired
     private BuyerService buyerService;
 
+    @Autowired
+    private ReviewService reviewService;
+
 
     @RequestMapping("/addSeller")
     public void addSeller(@RequestBody Seller seller) {
+
         sellerService.addSeller(seller);
     }
 
@@ -31,13 +37,19 @@ public class BuyerSellerController {
     public void approvedSeller(@PathVariable Integer id) {
         sellerService.approve(id);
     }
+
     @RequestMapping("/addBuyer")
     public void addBuyer(@RequestBody Buyer buyer) {
-      buyerService.addBuyer(buyer);
+        buyerService.addBuyer(buyer);
     }
+
     @RequestMapping("/approveReview/{id}")
 
     public void approveReview(@PathVariable Integer id) {
-        buyerService.approveReview(id);
+       reviewService.approveReview(id);
+    }
+    @RequestMapping("/addReview")
+    public void addReview(@RequestBody Review review) {
+        reviewService.addReview(review);
     }
 }

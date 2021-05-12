@@ -23,8 +23,8 @@ public class Product {
     private boolean isSold;
     //    private Integer quantity;
     private float price;
-    @Enumerated(EnumType.ORDINAL)
-    @Column(name = "product_Catagory")
-    private Category category;
+   // @Enumerated(EnumType.ORDINAL)
+   // @Column(name = "product_Catagory")
+    private String category;
 
 }

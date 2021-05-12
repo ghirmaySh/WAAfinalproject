@@ -1,4 +1,5 @@
 package com.waa.ecommerce.controller;
+import com.waa.ecommerce.model.Category;
 import com.waa.ecommerce.service.ProductService;
 import com.waa.ecommerce.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+
+
     @GetMapping("/")
     public List<Product> getAll() {
        return productService.getAllProducts();
@@ -22,8 +25,12 @@ public class ProductController {
     }
     @PostMapping("/")
     public void addProduct(@RequestBody Product product){
+
         productService.addProduct(product);
-    }@GetMapping("/{id}")
+
+
+    }
+    @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable("id") Long id){
         Product p = productService.getProductById(id);
         if(p==null){
@@ -42,13 +49,27 @@ public ResponseEntity<Product> deleteProductById(@PathVariable("id")Long id){
         return new ResponseEntity<Product>(p, HttpStatus.OK);
 }
 @PutMapping("/")
-public ResponseEntity<Product> updateProduct(@RequestBody Product product){
-        Product p = productService.updateProduct(product);
+public ResponseEntity<Product> updateProduct(@RequestBody Product product) {
+    Product p = productService.updateProduct(product);
 
-        if(p==null){
-            return new ResponseEntity<Product>(HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity<Product>(p, HttpStatus.ACCEPTED);
+    if (p == null) {
+        return new ResponseEntity<Product>(HttpStatus.BAD_REQUEST);
+    }
+    return new ResponseEntity<Product>(p, HttpStatus.ACCEPTED);
 }
+    @DeleteMapping("/deleteProduct/{id}")
+    public ResponseEntity<Product> deleteProduct(@PathVariable Long id) {
+
+        Product p = productService.getProductById(id);
+        if (p == null) {
+            return new ResponseEntity<Product>(HttpStatus.NOT_FOUND);
+        }
+        productService.deleteProduct(id);
+        return new ResponseEntity<Product>(p, HttpStatus.OK);
+    }
+  @PutMapping("/updateSold/{id}")
+    public void updateSold(@PathVariable Long id){
+         productService.updateSold(id);
+    }
 
 }

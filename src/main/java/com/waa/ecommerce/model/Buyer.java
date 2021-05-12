@@ -24,6 +24,7 @@ public class Buyer {
     private ShoppingCart shoppingCart;
     @ManyToMany
     private List<Seller> followedSellers;
+    //not nessesary
     @OneToMany
     private List<Review>review;
 

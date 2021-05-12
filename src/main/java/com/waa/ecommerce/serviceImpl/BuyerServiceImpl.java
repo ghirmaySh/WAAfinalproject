@@ -14,10 +14,7 @@ public class BuyerServiceImpl implements BuyerService {
     @Autowired
     BuyerRepository buyerRepository;
 
-    @Override
-    public void approveReview(Integer id) {
-      buyerRepository.approvedReviews(id);
-    }
+
 
     @Override
     public void addBuyer(Buyer buyer) {
