@@ -22,10 +22,13 @@ public class Order {
     private LocalDate deliveryDate;
     @OneToOne
     private ShippingAddress shippingAddress;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private BillingAddress billingAddress;
 
-    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
-    private List<CartItem> cartItemList;
+    // Questioned
+//    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
+//    private List<CartItem> cartItemList;
 
+    @OneToOne
+ private ShoppingCart shoppingCart; //New
 }

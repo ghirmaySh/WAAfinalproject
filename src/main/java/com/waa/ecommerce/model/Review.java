@@ -17,6 +17,7 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer review_Id;
     private String review;
+    //private boolean reviewStatus;
     private String reviewer_name;
     @ManyToOne
     private Product product;

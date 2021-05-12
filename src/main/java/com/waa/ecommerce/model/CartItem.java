@@ -19,10 +19,10 @@ private  Integer cartItem_id;
 private Integer quantity;
 @OneToOne
 private Product product;
-@ManyToOne(cascade = CascadeType.ALL)
+@ManyToOne
 @JoinColumn(name="order_id")
 private Order order;
 // we need to check if the cascade type is all or not
-@ManyToOne(cascade = CascadeType.ALL)
+@ManyToOne
 private ShoppingCart shoppingCart;
 }

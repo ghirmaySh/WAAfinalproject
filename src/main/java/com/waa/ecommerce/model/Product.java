@@ -17,12 +17,14 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long product_id;
     private String productName;
+    @Column(name="product_description")
     private String description;
     private String image;
     private boolean isSold;
     //    private Integer quantity;
     private float price;
-//    @Embedded
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "product_Catagory")
     private Category category;
 
 }

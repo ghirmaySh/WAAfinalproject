@@ -16,12 +16,12 @@ import java.util.List;
 public class Seller {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer seller_id;
-    private boolean isApproved;
+    private int seller_id;
+    private boolean isApproved=false;
     private  String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
-    @ManyToMany(mappedBy = "followedSellers", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "followedSellers")
     private List<Buyer> followingBuyers;
 }
