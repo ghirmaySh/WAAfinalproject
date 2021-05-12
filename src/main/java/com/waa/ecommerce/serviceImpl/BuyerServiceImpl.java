@@ -14,10 +14,9 @@ public class BuyerServiceImpl implements BuyerService {
     @Autowired
     BuyerRepository buyerRepository;
 
-
-
     @Override
     public void addBuyer(Buyer buyer) {
       buyerRepository.save(buyer);
+
     }
 }

@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
-
 public class SellerServiceImpl implements SellerService {
 
     @Autowired
@@ -22,11 +22,24 @@ public class SellerServiceImpl implements SellerService {
 
     @Override
     public void approve(Integer id) {
+
         sellerRePository.approved(id);
     }
 
+    @Override
+    public void sellerBuyPro(Integer id) {
 
+        sellerRePository.sellerBuyPro(id);
     }
+
+    @Override
+    public List<Seller> getAllSellers() {
+
+        return sellerRePository.findAll();
+    }
+
+
+}
 
 
 

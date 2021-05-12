@@ -18,10 +18,11 @@ public class Seller {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int seller_id;
     private boolean isApproved=false;
+    private boolean canBuy=false;
     private  String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
-    @ManyToMany(mappedBy = "followedSellers")
-    private List<Buyer> followingBuyers;
+//    @ManyToMany(mappedBy = "followedSellers")
+//    private List<Buyer> followingBuyers;
 }
