@@ -23,6 +23,7 @@ public class Seller {
     private String lastName;
     private String email;
     private String phoneNumber;
-//    @ManyToMany(mappedBy = "followedSellers")
-//    private List<Buyer> followingBuyers;
+//  @OneToOne
+//  @Column(name="Seller")
+//   private Buyer followingBuyers;
 }

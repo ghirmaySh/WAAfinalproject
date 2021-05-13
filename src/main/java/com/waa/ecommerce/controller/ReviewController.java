@@ -17,7 +17,7 @@ public class ReviewController {
         reviewService.addReview(review);
     }
 
-    @RequestMapping("/approveReview/{id}")
+    @GetMapping("/approveReview/{id}")
     public void approveReview(@PathVariable Integer id) {
         reviewService.approveReview(id);
     }

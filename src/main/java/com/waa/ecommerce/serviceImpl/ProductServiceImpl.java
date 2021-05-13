@@ -44,6 +44,12 @@ public class ProductServiceImpl implements ProductService {
     public void deleteProduct(Long id) {
         productRepository.deleteProduct(id);
     }
+
+    @Override
+    public void cancelOrder(Long id) {
+        productRepository.cancelOrder(id);
+    }
+
     @Override
     public Product updateProduct(Product product) {
 if(product.getProduct_id()==null)return null;

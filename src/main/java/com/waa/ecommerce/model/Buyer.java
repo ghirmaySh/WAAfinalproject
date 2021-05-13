@@ -20,6 +20,7 @@ public class Buyer {
     private String lastName;
     private String email;
     private boolean reviewStatus;
+    private boolean sellItem;
     private Integer pointsGained;
     //using @Join column is not recommend
     @OneToMany( cascade = CascadeType.ALL)
@@ -31,8 +32,9 @@ public class Buyer {
     private List<Payment> paymentList;
     @OneToOne(mappedBy = "buyer", cascade = CascadeType.ALL)
     private ShoppingCart shoppingCart;
-    @ManyToMany
-    private List<Seller> followedSellers;
+   // @OneToOne
+//    @Column(name="Buyer")
+//    private Seller followedSellers;
     //not nessesary
     @OneToMany
     private List<Review>review;

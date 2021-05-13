@@ -17,7 +17,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long product_id;
     private String productName;
-    @Column(name="product_description")
+    //@Column(name="product_description")
     private String description;
     private String image;
     private boolean isSold;

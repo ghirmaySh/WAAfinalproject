@@ -1,6 +1,7 @@
 package com.waa.ecommerce.controller;
 
 import com.waa.ecommerce.model.Seller;
+import com.waa.ecommerce.service.ProductService;
 import com.waa.ecommerce.service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,30 +15,41 @@ public class SellerController {
     @Autowired
     private SellerService sellerService;
 
+    @Autowired
+    private ProductService productService;
+
 //    @Autowired
 //    private BuyerService buyerService;
 
-//    @Autowired
+    //    @Autowired
 //    private ReviewService reviewService;
-@GetMapping("/")
-public List<Seller> getAllSellers() {
+    @GetMapping("/")
+    public List<Seller> getAllSellers() {
 
-    return sellerService.getAllSellers();
-}
+        return sellerService.getAllSellers();
+    }
+
     @PostMapping("/addSeller")
     public void addSeller(@RequestBody Seller seller) {
 
         sellerService.addSeller(seller);
     }
+
     @RequestMapping("/approve/{id}")
 
     public void approvedSeller(@PathVariable Integer id) {
         sellerService.approve(id);
     }
+
     @GetMapping("/sellerBuyPro/{id}")
-    public void sellerBuyProduct(@PathVariable Integer id){
+    public void sellerBuyProduct(@PathVariable Integer id) {
         sellerService.sellerBuyPro(id);
+
     }
+    @GetMapping("/cancelOrder/{id}")
+    public void cancelOrder(@PathVariable Long id){
+        productService.cancelOrder(id);
+}
 
 //    @PostMapping("/addBuyer")
 //    public void addBuyer(@RequestBody Buyer buyer) {

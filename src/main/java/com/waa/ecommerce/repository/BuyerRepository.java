@@ -12,4 +12,5 @@ import javax.transaction.Transactional;
 public interface BuyerRepository extends JpaRepository<Buyer,Integer> {
 
 
+
 }

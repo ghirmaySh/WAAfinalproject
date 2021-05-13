@@ -1,7 +1,9 @@
 package com.waa.ecommerce.serviceImpl;
 
 import com.waa.ecommerce.model.Buyer;
+import com.waa.ecommerce.model.FollowUnFollow;
 import com.waa.ecommerce.repository.BuyerRepository;
+import com.waa.ecommerce.repository.FollowUnFollowRepository;
 import com.waa.ecommerce.service.BuyerService;
 import com.waa.ecommerce.service.SellerService;
 
@@ -19,4 +21,6 @@ public class BuyerServiceImpl implements BuyerService {
       buyerRepository.save(buyer);
 
     }
+
+
 }

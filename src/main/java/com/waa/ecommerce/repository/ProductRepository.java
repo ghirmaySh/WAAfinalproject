@@ -18,4 +18,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Modifying
     @Query("update Product set isSold=true where product_id=:id")
     void updateSold(Long id);
+
+  @Transactional
+  @Modifying
+  @Query("update Product set isSold=false where product_id=:id")
+    void cancelOrder(Long id);
 }
