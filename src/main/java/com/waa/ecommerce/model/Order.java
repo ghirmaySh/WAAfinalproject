@@ -25,10 +25,14 @@ public class Order {
     @OneToOne(cascade = CascadeType.ALL)
     private BillingAddress billingAddress;
 
-    // Questioned
-//    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
-//    private List<CartItem> cartItemList;
+    //newCode
+    @Column(name="status")
+     private String orderStatus;
+    // private OrderStatus OrderStatus;
+      // Questioned
+     // @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
+    //    private List<CartItem> cartItemList;
 
-//    @OneToOne
-// //private ShoppingCart shoppingCart; //New
-}
+   //    @OneToOne
+  //private ShoppingCart shoppingCart; //New
+ }

@@ -1,12 +1,13 @@
 package com.waa.ecommerce.controller;
 
-import com.waa.ecommerce.model.Buyer;
-import com.waa.ecommerce.model.FollowUnFollow;
-import com.waa.ecommerce.model.Seller;
+import com.waa.ecommerce.model.*;
 import com.waa.ecommerce.service.BuyerService;
 import com.waa.ecommerce.service.FollowUnFollowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.math.BigInteger;
+import java.util.List;
 
 @RestController
 @RequestMapping("/buyer")
@@ -15,7 +16,7 @@ public class BuyerController {
     private BuyerService buyerService;
 
     @Autowired
-    private FollowUnFollowService  followUnFollowService;
+    private FollowUnFollowService followUnFollowService;
 
     @PostMapping("/addBuyer")
     public void addBuyer(@RequestBody Buyer buyer) {
@@ -56,7 +57,24 @@ public class BuyerController {
 
         }
     }
-}
+
 //    @RequestMapping("/approveReview/{id}")
 //    public void approveReview(@PathVariable Integer id) {
 //        reviewService.approveReview(id);
+
+    @GetMapping("/orderHistory/{id}")
+    public List<Order> getOrderHistory(@PathVariable Long id) {
+        return buyerService.getOrderHistory(id);
+    }
+
+
+    @PutMapping("/cancelOrder/{buyerId}/{orderId}")
+    public void cancelOrder(@PathVariable Long buyerId, @PathVariable Long orderId) {
+        buyerService.cancelOrder(buyerId, orderId);
+    }
+
+    @GetMapping("/{id}/review")
+    public void review(@PathVariable Long id, @RequestBody Review review) {
+        buyerService.addReview(id, review);
+    }
+}

@@ -16,11 +16,11 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @Entity
 
-public class FollowUnFollow {
+public class FollowUnFollow  {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Long  id;
-    Integer buyerId;
+     @Id
+     @GeneratedValue(strategy = GenerationType.AUTO)
+     Long  id;
+     Integer buyerId;
      Integer sellerId;
 }

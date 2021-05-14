@@ -15,6 +15,7 @@ import java.util.List;
 public class Buyer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Digits(integer=6,fraction=0,message "this must be atleast {2}digits")
     private Integer buyer_id;
     private String firstName;
     private String lastName;
