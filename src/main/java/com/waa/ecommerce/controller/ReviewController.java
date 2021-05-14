@@ -16,9 +16,10 @@ public class ReviewController {
     public void addReview(@RequestBody Review review) {
         reviewService.addReview(review);
     }
-
-    @GetMapping("/approveReview/{id}")
-    public void approveReview(@PathVariable Integer id) {
-        reviewService.approveReview(id);
-    }
+//
+//    @GetMapping("/approveReview/{id}")
+//    public void approveReview(@PathVariable Integer id) {
+//        reviewService.approveReview(id);
+//    }
+//}
 }

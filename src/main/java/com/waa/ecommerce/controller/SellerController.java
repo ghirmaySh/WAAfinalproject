@@ -35,11 +35,11 @@ public class SellerController {
         sellerService.addSeller(seller);
     }
 
-    @RequestMapping("/approve/{id}")
-
-    public void approvedSeller(@PathVariable Integer id) {
-        sellerService.approve(id);
-    }
+//    @RequestMapping("/approve/{id}")
+//
+//    public void approvedSeller(@PathVariable Integer id) {
+//        sellerService.approve(id);
+//    }
 
     @GetMapping("/sellerBuyPro/{id}")
     public void sellerBuyProduct(@PathVariable Integer id) {

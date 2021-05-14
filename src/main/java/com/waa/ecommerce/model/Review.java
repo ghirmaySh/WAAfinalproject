@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -20,6 +21,7 @@ public class Review {
     private boolean reviewStatus;
     private String reviewer_name;
     @ManyToOne
+    @JsonIgnore
     private Product product;
 
 

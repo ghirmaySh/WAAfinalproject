@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,5 +27,7 @@ public class Product {
    // @Enumerated(EnumType.ORDINAL)
    // @Column(name = "product_Catagory")
     private String category;
+   @OneToMany(mappedBy = "product",fetch= FetchType.EAGER)
+   List <Review> reviews ;
 
 }
